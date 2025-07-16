@@ -69,7 +69,7 @@ echo "4. Packaging Conda environment '$ENV_NAME' using conda-pack..."
 # --output 指定输出文件
 # --compress 指定压缩算法，lz4或gzip，lz4更快但可能略大
 # --ignore-existing 忽略已存在的同名输出文件
-conda pack -n "$ENV_NAME" -o "$ARCHIVE_NAME" --compress gzip --ignore-existing
+conda pack -f -o "$ARCHIVE_NAME"  --zip-symlinks
  
 echo "Package created: $(pwd)/$ARCHIVE_NAME"
 echo "You can now use this archive with Spark submit:"
