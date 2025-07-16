@@ -44,6 +44,7 @@ conda activate "$ENV_NAME"
 # 假设你的requirements.txt文件在当前目录下
 if [ -f "$REQUIREMENTS_FILE" ]; then
     echo "3. Installing pip packages from $REQUIREMENTS_FILE..."
+    pip install --upgrade pip
     pip install -r "$REQUIREMENTS_FILE"
 else
     echo "WARNING: $REQUIREMENTS_FILE not found. Skipping pip package installation."
