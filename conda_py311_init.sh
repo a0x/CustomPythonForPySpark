@@ -33,6 +33,10 @@ rm "$MINICONDA_INSTALLER"
 # 初始化Conda
 source "$CONDA_INSTALL_DIR/bin/activate"
 
+# To accept a channel's Terms of Service, run the following command:
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/main
+conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
+
 # 2. 使用conda创建独立环境，并安装对应版本的Python
 echo "2. Creating Conda environment '$ENV_NAME' with Python $PYTHON_VERSION..."
 conda create -y -n "$ENV_NAME" python="$PYTHON_VERSION"
