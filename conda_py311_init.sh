@@ -18,7 +18,7 @@ else
     echo "Unsupported architecture: $ARCH"
     exit 1
 fi
-ARCHIVE_NAME="${ENV_NAME}.zip"      # 打包后的归档文件名称
+ARCHIVE_NAME="${ENV_NAME}.tar.gz"      # 打包后的归档文件名称
 ARCHIVE_ALIAS="pyspark_env"         # 在Spark中引用的别名
 
 # 1. 下载并安装Conda (这里以Miniconda为例)
@@ -69,7 +69,7 @@ echo "4. Packaging Conda environment '$ENV_NAME' using conda-pack..."
 # --output 指定输出文件
 # --compress 指定压缩算法，lz4或gzip，lz4更快但可能略大
 # --ignore-existing 忽略已存在的同名输出文件
-conda pack -f -o "$ARCHIVE_NAME"  --zip-symlinks
+conda pack -f -o "$ARCHIVE_NAME"
  
 echo "Package created: $(pwd)/$ARCHIVE_NAME"
 echo "You can now use this archive with Spark submit:"
